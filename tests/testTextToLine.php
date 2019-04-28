@@ -10,11 +10,11 @@ function testTextToLine()
 
     if ($expected != $actual)
     {
-        echo 'fail'. "\n";
+        echo "\n" . 'fail'. "\n";
         echo 'expected'. "\n" . json_encode($expected) . "\n";
         echo 'actual'. "\n" . json_encode($actual) . "\n";
     }else{
-        echo 'ok';
+        echo '.';
     }
 
 
@@ -30,11 +30,11 @@ function testTextToLine2()
 
     if ($expected != $actual)
     {
-        echo 'fail'. "\n";
+        echo "\n" . 'fail'. "\n";
         echo 'expected'. "\n" . json_encode($expected) . "\n";
         echo 'actual'. "\n" . json_encode($actual) . "\n";
     }else{
-        echo 'ok';
+        echo '.';
     }
 
 
@@ -56,7 +56,7 @@ function textToLine($content, $maxCharsPerLine)
         $lengthWord = strlen($word);
 //        $word = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
 
-        if (($lengthline - $lengthWord) > 0 ) {
+        if (($lengthline - $lengthWord) >= 0 ) {
             $currentLine [] = $word;
             $lengthline -= $lengthWord;
 
@@ -68,6 +68,9 @@ function textToLine($content, $maxCharsPerLine)
             $currentLine = [];
             $lengthline = $maxCharsPerLine;
             $currentLine [] = $word;
+            if ($i == count($words) - 1) {
+                $totalSentence [] = $currentLine;
+            }
         }
 //        echo "end loop \n";
     }
