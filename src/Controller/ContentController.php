@@ -124,45 +124,52 @@ class ContentController extends AbstractController
 
         $words = explode(" ", $content->getText());
         $arraySentence = [];
+        $lengthline = 0;
+
         foreach ($words as $word) {
-            $text = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
+            $word = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
             $arrayWord = [];
-            foreach ($text as $letter)
+            $lengthline = strlen($word);
+            if ($lengthline <= 9)
             {
-                if(in_array($letter, self::square))
+                foreach ($word as $letter)
                 {
-                    $arrayWord [] = 'square';
+                    if(in_array($letter, self::square))
+                    {
+                        $arrayWord [] = 'square';
 
-                } elseif (in_array($letter, self::longBottom))
-                {
-                    $arrayWord [] = 'long-bottom';
+                    } elseif (in_array($letter, self::longBottom))
+                    {
+                        $arrayWord [] = 'long-bottom';
 
-                } elseif (in_array($letter, self::longTop))
-                {
-                    $arrayWord [] = 'long-top';
+                    } elseif (in_array($letter, self::longTop))
+                    {
+                        $arrayWord [] = 'long-top';
 
-                } elseif (in_array($letter, self::long))
-                {
-                    $arrayWord [] = 'long';
+                    } elseif (in_array($letter, self::long))
+                    {
+                        $arrayWord [] = 'long';
 
-                } elseif (in_array($letter, self::accent))
-                {
-                    $arrayWord [] = 'accent';
+                    } elseif (in_array($letter, self::accent))
+                    {
+                        $arrayWord [] = 'accent';
 
-                }elseif (in_array($letter, self::cedilla))
-                {
-                    $arrayWord [] = 'cedilla';
+                    }elseif (in_array($letter, self::cedilla))
+                    {
+                        $arrayWord [] = 'cedilla';
+                    }
+                    elseif ($letter === " ")
+                    {
+                        $arrayWord [] = 'space';
+                    }
+                    else
+                    {
+                        $arrayWord [] = 'punctuation';
+                    }
                 }
-                elseif ($letter === " ")
-                {
-                    $arrayWord [] = 'space';
-                }
-                else
-                {
-                    $arrayWord [] = 'punctuation';
-                }
+                $arraySentence [] = $arrayWord;
             }
-            $arraySentence [] = $arrayWord;
+
 
         }
 
