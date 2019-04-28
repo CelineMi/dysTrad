@@ -12,7 +12,7 @@ class TextTransform
         $lengthline = 0;
         $totalSentence = [];
         $currentLine = [];
-        $lengthline = $maxCharsPerLine;
+        $remainingChars = $maxCharsPerLine;
 
         for($i=0; $i < count($words); $i++){
 
@@ -20,9 +20,9 @@ class TextTransform
             $lengthWord = strlen($word);
 //        $word = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
 
-            if (($lengthline - $lengthWord) >= 0 ) {
+            if (($remainingChars - $lengthWord) >= 0 ) {
                 $currentLine [] = $word;
-                $lengthline -= $lengthWord;
+                $remainingChars -= $lengthWord;
 
                 if ($i == count($words) - 1) {
                     $totalSentence [] = $currentLine;
@@ -30,7 +30,7 @@ class TextTransform
             } else {
                 $totalSentence [] = $currentLine;
                 $currentLine = [];
-                $lengthline = $maxCharsPerLine;
+                $remainingChars = $maxCharsPerLine;
                 $currentLine [] = $word;
                 if ($i == count($words) - 1) {
                     $totalSentence [] = $currentLine;
