@@ -3,7 +3,10 @@
 {% block body %}
     <h4>Le texte suivant sera traduit : </h4>
     <p>{{ text }}</p>
-    {% for letter in arrayLetters %}
-        <div class="letter {{ letter }}"></div>
+    {% for word in arraySentence %}
+        {% for letter in word %}
+            <div class="letter {{ letter }}"></div>
+        {% endfor %}
+        <div></div>
     {% endfor %}
 {% endblock %}

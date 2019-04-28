@@ -114,65 +114,62 @@ class ContentController extends AbstractController
     }
 
 
-/**
- * @Route("/translated/{id}", name="translated_content", methods={"GET","POST"})
- */
+    /**
+     * @Route("/translated/{id}", name="translated_content", methods={"GET","POST"})
+     */
     public function defineCaraterType($id)
     {
         $content = $this->em->getRepository(Content::class)->findOneById($id);
         setlocale(LC_ALL,'fr_FR.UTF-8');
-//        $text = str_split($content->getText());
-        $text = preg_split('//u', strtolower($content->getText()), -1, PREG_SPLIT_NO_EMPTY);
-        $arrayLetters = [];
-        var_dump($text);
-        foreach ($text as $letter)
-        {
-            if(in_array($letter, self::square))
-            {
-                $arrayLetters [] = 'square';
 
-            } elseif (in_array($letter, self::longBottom))
+        $words = explode(" ", $content->getText());
+        $arraySentence = [];
+        foreach ($words as $word) {
+            $text = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
+            $arrayWord = [];
+            foreach ($text as $letter)
             {
-                $arrayLetters [] = 'long-bottom';
+                if(in_array($letter, self::square))
+                {
+                    $arrayWord [] = 'square';
 
-            } elseif (in_array($letter, self::longTop))
-            {
-                $arrayLetters [] = 'long-top';
+                } elseif (in_array($letter, self::longBottom))
+                {
+                    $arrayWord [] = 'long-bottom';
 
-            } elseif (in_array($letter, self::long))
-            {
-                $arrayLetters [] = 'long';
+                } elseif (in_array($letter, self::longTop))
+                {
+                    $arrayWord [] = 'long-top';
 
-            } elseif (in_array($letter, self::accent))
-            {
-                $arrayLetters [] = 'accent';
+                } elseif (in_array($letter, self::long))
+                {
+                    $arrayWord [] = 'long';
 
-            }elseif (in_array($letter, self::cedilla))
-            {
-                $arrayLetters [] = 'cedilla';
+                } elseif (in_array($letter, self::accent))
+                {
+                    $arrayWord [] = 'accent';
+
+                }elseif (in_array($letter, self::cedilla))
+                {
+                    $arrayWord [] = 'cedilla';
+                }
+                elseif ($letter === " ")
+                {
+                    $arrayWord [] = 'space';
+                }
+                else
+                {
+                    $arrayWord [] = 'punctuation';
+                }
             }
-            elseif ($letter === " ")
-            {
-                $arrayLetters [] = 'space';
-            }
-            else
-            {
-                $arrayLetters [] = 'punctuation';
-            }
+            $arraySentence [] = $arrayWord;
+
         }
+
         return $this->render('result.html.twig', [
-            'arrayLetters' => $arrayLetters,
+            'arraySentence' => $arraySentence,
             'text' => $content->getText()
         ]);
     }
 
-    public function getHtmlStructure($arrayLetters)
-    {
-        foreach ($arrayLetters as $caracter)
-        {
-            $caracter .= $caracter;
-        }
-
-        return $caracter;
-    }
 }
