@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h4>Le texte suivant sera traduit : </h4>
+    <p>{{ text }}</p>
+    {% for letter in arrayLetters %}
+        <div class="letter {{ letter }}"></div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+    <div class="form-row">
+        <label for="exampleFormControlTextarea1">{{ form_label(form) }}</label>
+        {{ form_row(form) }}
+        {{ form_errors(form) }}
+    </div>
+    <button class="btn btn-primary">{{ button_label|default('Texte à traduire') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,57 @@
+body{
+    max-width: 800px;
+    /*background-color: aquamarine;*/
+}
+
+.letter{
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    /*float: left;*/
+    display: inline-block;
+    /*width: 98px;*/
+    /*height: 396px;*/
+    width: 92px;
+    height: 399px;
+    background-image: url("../img/lettres.png");
+    background-size: 600px 400px;
+    background-repeat: no-repeat;
+}
+.square{
+    background-position: top left;
+}
+.long-bottom{
+    width: 92px;
+    background-position: -92px 0px;
+}
+.long-top{
+    background-position: -184px 0px;
+}
+.long{
+    background-position: -276px 3px;
+}
+.accent{
+    background-position: -368.3px 0px;
+}
+
+.space{
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    /*float: left;*/
+    display: inline-block;
+    width: 100px;
+    height: 396px;
+    background: white;
+}
+
+.punctuation{
+    width: 60px;
+    background-position: -553px 3px;
+
+}
+
+.cedilla{
+    background-position: -460px 0px;
+
+}
