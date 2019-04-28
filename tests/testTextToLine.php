@@ -22,10 +22,10 @@ function testTextToLine()
 
 function testTextToLine2()
 {
-    $actual = textToLine('salut ça va bien ?', 3);
+    $actual = textToLine('aaaaaaaaa aaaaaaaaa', 9);
     $expected = [
-        ['salut', 'ça'],
-        ['va', 'bien', '?']
+        ['aaaaaaaaa'],
+        ['aaaaaaaaa']
     ];
 
     if ($expected != $actual)
