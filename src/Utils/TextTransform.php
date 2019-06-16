@@ -18,7 +18,7 @@ class TextTransform
 
             $word = $words[$i];
             $lengthWord = strlen($word);
-//        $word = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
+//            $letterInWord = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
 
             if (($remainingChars - $lengthWord) >= 0 ) {
                 $currentLine [] = $word;

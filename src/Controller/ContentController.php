@@ -127,51 +127,33 @@ class ContentController extends AbstractController
         $words = explode(" ", $content->getText());
         $arraySentence = [];
         $lengthline = 0;
+        $i = 1;
 
         foreach ($words as $word) {
-            $word = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
+            $lengthline += strlen($word) + 1;
+            $wordArray = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
             $arrayWord = [];
-            $lengthline = strlen($word);
-            if ($lengthline <= 9)
+
+            // defines nb caracters by printed line
+            //TODO divide css by 4
+            if ($lengthline <= 35)
             {
-                foreach ($word as $letter)
+                foreach ($wordArray as $letter)
                 {
-                    if(in_array($letter, self::square))
-                    {
-                        $arrayWord [] = 'square';
-
-                    } elseif (in_array($letter, self::longBottom))
-                    {
-                        $arrayWord [] = 'long-bottom';
-
-                    } elseif (in_array($letter, self::longTop))
-                    {
-                        $arrayWord [] = 'long-top';
-
-                    } elseif (in_array($letter, self::long))
-                    {
-                        $arrayWord [] = 'long';
-
-                    } elseif (in_array($letter, self::accent))
-                    {
-                        $arrayWord [] = 'accent';
-
-                    }elseif (in_array($letter, self::cedilla))
-                    {
-                        $arrayWord [] = 'cedilla';
-                    }
-                    elseif ($letter === " ")
-                    {
-                        $arrayWord [] = 'space';
-                    }
-                    else
-                    {
-                        $arrayWord [] = 'punctuation';
-                    }
+                    $arrayWord = $this->replaceWordBySigns($letter, $arrayWord);
                 }
-                $arraySentence [] = $arrayWord;
-            }
+                $arraySentence[$i][] = $arrayWord;
+            }else{
+                $lengthline = 0;
+                $lengthline += strlen($word) +1;
+                foreach ($wordArray as $letter)
+                {
+                    $arrayWord = $this->replaceWordBySigns($letter, $arrayWord);
+                }
+                $i++;
+                $arraySentence[$i][] = $arrayWord;
 
+            }
 
         }
 
@@ -179,6 +161,38 @@ class ContentController extends AbstractController
             'arraySentence' => $arraySentence,
             'text' => $content->getText()
         ]);
+    }
+
+    /**
+     * @param $letter
+     * @param array $arrayWord
+     * @return array
+     */
+    public function replaceWordBySigns($letter, array $arrayWord): array
+    {
+        if (in_array($letter, self::square)) {
+            $arrayWord [] = 'square';
+
+        } elseif (in_array($letter, self::longBottom)) {
+            $arrayWord [] = 'long-bottom';
+
+        } elseif (in_array($letter, self::longTop)) {
+            $arrayWord [] = 'long-top';
+
+        } elseif (in_array($letter, self::long)) {
+            $arrayWord [] = 'long';
+
+        } elseif (in_array($letter, self::accent)) {
+            $arrayWord [] = 'accent';
+
+        } elseif (in_array($letter, self::cedilla)) {
+            $arrayWord [] = 'cedilla';
+        } elseif ($letter === " ") {
+            $arrayWord [] = 'space';
+        } else {
+            $arrayWord [] = 'punctuation';
+        }
+        return $arrayWord;
     }
 
 }
