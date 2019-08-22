@@ -1,5 +1,5 @@
 body{
-    max-width: 1200px;
+    max-width: 2400px;
     /*background-color: aquamarine;*/
 }
 
@@ -9,29 +9,34 @@ body{
     margin-top: 5px;
     /*float: left;*/
     display: inline-block;
-    /*width: 98px;*/
-    /*height: 396px;*/
-    width: 92px;
-    height: 399px;
+    width: 22.9px;
+    height: 100px;
+    /*width: 92px;*/
+    /*height: 399px;*/
     background-image: url("../img/lettres.png");
-    background-size: 600px 400px;
+    background-size: 150px 100px;
+    /*background-size: 600px 400px;*/
     background-repeat: no-repeat;
 }
 .square{
     background-position: top left;
 }
 .long-bottom{
-    width: 92px;
-    background-position: -92px 0px;
+    /*width: 92px;*/
+    background-position: -23px 0px;
+    /*background-position: -92px 0px;*/
 }
 .long-top{
-    background-position: -184px 0px;
+    background-position: -46.2px 0px;
+    /*background-position: -184px 0px;*/
 }
 .long{
-    background-position: -276px 3px;
+    background-position: -69.2px 0px;
+    /*background-position: -276px 3px;*/
 }
 .accent{
-    background-position: -368.3px 0px;
+    background-position: -92.1px 0px;
+    /*background-position: -368.3px 0px;*/
 }
 
 .space{
@@ -40,18 +45,21 @@ body{
     margin-top: 5px;
     /*float: left;*/
     display: inline-block;
-    width: 100px;
-    height: 396px;
+    width: 20px;
+    /*width: 100px;*/
+    /*height: 396px;*/
     background: white;
 }
 
 .punctuation{
-    width: 60px;
-    background-position: -553px 3px;
-
+    width: 15px;
+    /*width: 60px;*/
+    background-position: -138px 3px;
+    /*background-position: -553px 3px;*/
 }
 
 .cedilla{
-    background-position: -460px 0px;
+    background-position: -115px 0px;
+    /*background-position: -460px 0px;*/
 
 }
