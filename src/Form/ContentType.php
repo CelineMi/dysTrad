@@ -14,7 +14,13 @@ class ContentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Text', TextareaType::class)
+            ->add('Text', TextareaType::class,
+                [
+                    'attr' => [
+                        'class' => 'w3-input w3-border',
+                        'placeholder' => 'Description'
+                    ]
+                ])
         ;
     }
 

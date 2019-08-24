@@ -3,9 +3,42 @@
 {% block title %}New Content{% endblock %}
 
 {% block body %}
-    <h1>Create new Content</h1>
+{#    <h1>Create new Content</h1>#}
 
-    {{ include('content/_form.html.twig') }}
+{#    {{ include('content/_form.html.twig') }}#}
 
-    <a href="{{ path('content_index') }}">back to list</a>
+{#    <a href="{{ path('content_index') }}">back to list</a>#}
+
+
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+        <img class="w3-image rotationBackground" src="/img/newContentBack.jpg" alt="London" width="1500" height="700">
+        <div class="w3-display-middle" style="width:65%">
+            <div class="w3-bar w3-red">
+                <button class="w3-bar-item"><i class="fa fa-pencil w3-margin-right"></i>Créer un nouveau contenu</button>
+            </div>
+
+            <!-- Tabs -->
+            <div id="newText" class="w3-container w3-white w3-padding-16 myLink">
+                <h3>Copiez votre texte ici</h3>
+                <div class="w3-row-padding" style="margin:0 -16px;">
+{#                    <textarea class="w3-input w3-border" rows="20" cols="133" placeholder="Saisissez votre texte ici ..."></textarea>#}
+                    {{ form_start(form) }}
+
+                    {{ form_widget(form.Text) }}
+                    {{ form_errors(form.Text) }}
+
+                    <button type="submit" class="btn btn-theme pull-right">Ajouter</button>
+                    <div class="clearfix"></div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+{#        {{ include('content/_form.html.twig') }}#}
+
+
+    </header>
+
 {% endblock %}

@@ -1,21 +1,17 @@
 {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Dyslexic helper</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('content_new') }}">Créer un contenu <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('content_index') }}">Tous les contenus<span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="{{ path('home') }}" class="w3-bar-item w3-button w3-padding-large w3-white">Dyslexia helper</a>
+            <a href="{{ path('content_new') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Créer un contenu</a>
+            <a href="{{ path('content_index') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Tous les contenus</a>
         </div>
-    </nav>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="{{ path('home') }}" class="w3-bar-item w3-button w3-padding-large">Dyslexia helper</a>
+            <a href="{{ path('content_new') }}" class="w3-bar-item w3-button w3-padding-large">Créer un contenu</a>
+            <a href="{{ path('content_index') }}" class="w3-bar-item w3-button w3-padding-large">Tous les contenus</a>
+        </div>
+    </div>
 {% endblock %}

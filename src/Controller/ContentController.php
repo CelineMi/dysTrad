@@ -34,6 +34,14 @@ class ContentController extends AbstractController
     }
 
     /**
+     * @Route("/home", name="home", methods={"GET"})
+     */
+    public function home(): Response
+    {
+        return $this->render('home.html.twig');
+    }
+
+    /**
      * @Route("/", name="content_index", methods={"GET"})
      */
     public function index(ContentRepository $contentRepository): Response
@@ -135,7 +143,6 @@ class ContentController extends AbstractController
             $arrayWord = [];
 
             // defines nb caracters by printed line
-            //TODO divide css by 4
             if ($lengthline <= 35)
             {
                 foreach ($wordArray as $letter)

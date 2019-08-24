@@ -61,5 +61,19 @@ body{
 .cedilla{
     background-position: -115px 0px;
     /*background-position: -460px 0px;*/
+}
 
+/*TODO commenter avec les pages*/
+.backgroundHome{
+    background-color: #12005e;
+    color: white;
+}
+
+/*TODO reprendre classe source + commenter*/
+.rotationBackground{
+    transform: rotate(180deg);
+}
+
+.w3-input{
+    height: 200px;
 }
