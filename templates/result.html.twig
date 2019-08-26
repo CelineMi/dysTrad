@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h4>Le texte suivant sera traduit : </h4>
-    <p>{{ text }}</p>
+    <div class="backgroundResult">
 
-    {% for word in arraySentence %}
-        {% for letter in word %}
-            {% for oneLetter in letter %}
-                <div class="letter {{ oneLetter }}"></div>
+        <h4 class="w3-padding-large titleResult">Le texte suivant a été traduit : </h4>
+        <p class="w3-padding-large">{{ text }}</p>
+
+        <div class="w3-padding-large translatedText">
+        {% for word in arraySentence %}
+            {% for letter in word %}
+                {% for oneLetter in letter %}
+                    <div class="letter {{ oneLetter }}"></div>
+                {% endfor %}
+                <div class="space"></div>
             {% endfor %}
-            <div class="space"></div>
         {% endfor %}
-        <div></div>
-    {% endfor %}
+        </div>
+    </div>
 {% endblock %}

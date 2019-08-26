@@ -3,6 +3,7 @@ body{
     /*background-color: aquamarine;*/
 }
 
+/*CSS for boxes display after translation*/
 .letter{
     margin-right: 5px;
     margin-bottom: 5px;
@@ -63,17 +64,22 @@ body{
     /*background-position: -460px 0px;*/
 }
 
-/*TODO commenter avec les pages*/
+/*page home*/
 .backgroundHome{
     background-color: #12005e;
     color: white;
 }
 
-/*TODO reprendre classe source + commenter*/
-.rotationBackground{
-    transform: rotate(180deg);
-}
-
 .w3-input{
     height: 200px;
+}
+
+/*page results*/
+
+.backgroundResult{
+    margin: 30px;
+}
+
+.titleResult{
+    margin-top: 80px;
 }
