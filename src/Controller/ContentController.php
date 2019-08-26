@@ -11,9 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/content")
- */
+
 class ContentController extends AbstractController
 {
 
@@ -34,7 +32,7 @@ class ContentController extends AbstractController
     }
 
     /**
-     * @Route("/home", name="home", methods={"GET"})
+     * @Route("/", name="home", methods={"GET"})
      */
     public function home(): Response
     {
@@ -42,7 +40,7 @@ class ContentController extends AbstractController
     }
 
     /**
-     * @Route("/", name="content_index", methods={"GET"})
+     * @Route("/index", name="content_index", methods={"GET"})
      */
     public function index(ContentRepository $contentRepository): Response
     {
