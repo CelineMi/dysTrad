@@ -21,6 +21,7 @@ class ContentController extends AbstractController
     CONST long = ['f'];
     CONST accent = ['à', 'è', 'â', 'é', 'è', 'ê', 'ë' ,'ï', 'î', 'ô', 'ù', 'û'];
     CONST cedilla = ['ç'];
+    CONST upperKase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
     protected $em;
 
@@ -137,7 +138,7 @@ class ContentController extends AbstractController
 
         foreach ($words as $word) {
             $lengthline += strlen($word) + 1;
-            $wordArray = preg_split('//u', strtolower($word), -1, PREG_SPLIT_NO_EMPTY);
+            $wordArray = preg_split('//u', $word, -1, PREG_SPLIT_NO_EMPTY);
             $arrayWord = [];
 
             // defines nb caracters by printed line
@@ -175,11 +176,14 @@ class ContentController extends AbstractController
      */
     public function replaceWordBySigns($letter, array $arrayWord): array
     {
-        if (in_array($letter, self::square)) {
-            $arrayWord [] = 'square';
+        if (in_array($letter, self::upperKase)) {
+            $arrayWord [] = 'upperKase';
 
         } elseif (in_array($letter, self::longBottom)) {
             $arrayWord [] = 'long-bottom';
+
+        } elseif (in_array($letter, self::square)) {
+            $arrayWord [] = 'square';
 
         } elseif (in_array($letter, self::longTop)) {
             $arrayWord [] = 'long-top';

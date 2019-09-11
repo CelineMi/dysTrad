@@ -10,7 +10,7 @@ body{
     margin-top: 5px;
     /*float: left;*/
     display: inline-block;
-    width: 22.9px;
+    width: 19.9px;
     height: 100px;
     /*width: 92px;*/
     /*height: 399px;*/
@@ -24,15 +24,15 @@ body{
 }
 .long-bottom{
     /*width: 92px;*/
-    background-position: -23px 0px;
+    background-position: -20px 0px;
     /*background-position: -92px 0px;*/
 }
 .long-top{
-    background-position: -46.2px 0px;
+    background-position: -40.2px 0px;
     /*background-position: -184px 0px;*/
 }
 .long{
-    background-position: -69.2px 0px;
+    background-position: -60.2px 0px;
     /*background-position: -276px 3px;*/
 }
 .accent{
@@ -53,14 +53,19 @@ body{
 }
 
 .punctuation{
-    width: 15px;
+    width: 10px;
     /*width: 60px;*/
-    background-position: -138px 3px;
+    background-position: -120.5px 3px;
     /*background-position: -553px 3px;*/
 }
 
+.upperKase{
+    width: 20px;
+    background-position: -130.5px 3px;
+}
+
 .cedilla{
-    background-position: -115px 0px;
+    background-position: -100.4px 0px;
     /*background-position: -460px 0px;*/
 }
 
