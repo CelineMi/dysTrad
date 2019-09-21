@@ -22,7 +22,7 @@ class ContentController extends AbstractController
     CONST accent = ['à', 'è', 'â', 'é', 'è', 'ê', 'ë' ,'ï', 'î', 'ô', 'ù', 'û'];
     CONST cedilla = ['ç'];
     CONST upperKase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
+    CONST punctuation = ['!', ',', '.', ';', '?', ':'];
     protected $em;
 
     public function __construct(
@@ -131,7 +131,10 @@ class ContentController extends AbstractController
         $content = $this->em->getRepository(Content::class)->findOneById($id);
         setlocale(LC_ALL,'fr_FR.UTF-8');
 
-        $words = explode(" ", $content->getText());
+        $contentWithReturn = str_replace("\n", '_', $content->getText());
+
+        $words = explode(" ", $contentWithReturn);
+
         $arraySentence = [];
         $lengthline = 0;
         $i = 1;
@@ -146,7 +149,7 @@ class ContentController extends AbstractController
             {
                 foreach ($wordArray as $letter)
                 {
-                    $arrayWord = $this->replaceWordBySigns($letter, $arrayWord);
+                        $arrayWord = $this->replaceWordBySigns($letter, $arrayWord);
                 }
                 $arraySentence[$i][] = $arrayWord;
             }else{
@@ -158,11 +161,9 @@ class ContentController extends AbstractController
                 }
                 $i++;
                 $arraySentence[$i][] = $arrayWord;
-
             }
 
         }
-
         return $this->render('result.html.twig', [
             'arraySentence' => $arraySentence,
             'text' => $content->getText()
@@ -175,7 +176,7 @@ class ContentController extends AbstractController
      * @return array
      */
     public function replaceWordBySigns($letter, array $arrayWord): array
-    {
+    {   var_dump($letter);
         if (in_array($letter, self::upperKase)) {
             $arrayWord [] = 'upperKase';
 
@@ -196,9 +197,14 @@ class ContentController extends AbstractController
 
         } elseif (in_array($letter, self::cedilla)) {
             $arrayWord [] = 'cedilla';
+
         } elseif ($letter === " ") {
             $arrayWord [] = 'space';
-        } else {
+
+        }elseif ($letter === "_"){
+            $arrayWord [] = 'returnKase';
+
+        } elseif (in_array($letter, self::punctuation)) {
             $arrayWord [] = 'punctuation';
         }
         return $arrayWord;

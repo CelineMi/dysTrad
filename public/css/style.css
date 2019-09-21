@@ -20,24 +20,26 @@ body{
     background-repeat: no-repeat;
 }
 .square{
+    width: 29.4px;
     background-position: top left;
 }
 .long-bottom{
     /*width: 92px;*/
-    background-position: -20px 0px;
+    width: 18px;
+    background-position: -29.6px 0px;
     /*background-position: -92px 0px;*/
 }
 .long-top{
-    background-position: -40.2px 0px;
-    /*background-position: -184px 0px;*/
+    background-position: -48.2px 0px;
+    width: 18.4px;
 }
 .long{
-    background-position: -60.2px 0px;
-    /*background-position: -276px 3px;*/
+    background-position: -66.7px 0px;
+    width: 18.5px;
 }
 .accent{
-    background-position: -80.1px 0px;
-    /*background-position: -368.3px 0px;*/
+    background-position: -85.1px 0px;
+    width: 18.5px;
 }
 
 .space{
@@ -53,20 +55,20 @@ body{
 }
 
 .punctuation{
-    width: 10px;
+    width: 9px;
     /*width: 60px;*/
-    background-position: -120.5px 3px;
+    background-position: -122.5px 3px;
     /*background-position: -553px 3px;*/
 }
 
 .upperKase{
     width: 20px;
-    background-position: -130.5px 3px;
+    background-position: -131.8px 0px;
 }
 
 .cedilla{
-    background-position: -100.4px 0px;
-    /*background-position: -460px 0px;*/
+    background-position: -103.9px 0px;
+    width: 18.6px;
 }
 
 /*page home*/
@@ -106,5 +108,11 @@ body{
     align-items: center;
     border: solid 2px orange;
     padding-left: 20px;
-    width: 1000px;
+    width: 1073px;
+}
+
+.returnKase {
+    display: block;
+    width: 0px;
+    height: 0px;
 }

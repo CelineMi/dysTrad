@@ -30,6 +30,10 @@
                 <p>lettre majuscule</p>
             </div>
             <div class="legend-item">
+                <div class="letter cedilla"></div>
+                <p>Cédille</p>
+            </div>
+            <div class="legend-item">
                 <div class="letter punctuation"></div>
                 <p>Ponctuation</p>
             </div>
@@ -38,19 +42,22 @@
         </div>
 
         <h4 class="w3-padding-large infos-client">Votre texte a été traduit : </h4>
+        <p class="w3-padding-large">{{ text }}</p>
         <p class="w3-padding-large infos-client">Pour l'utiliser, faites une simple copie d'écran grâce à l'outil capture de windows.</p>
-{#                <h4 class="w3-padding-large titleResult">Le texte suivant a été traduit : </h4>#}
-{#                <p class="w3-padding-large">{{ text }}</p>#}
 
         <div class="w3-padding-large translatedText">
-        {% for word in arraySentence %}
-            {% for letter in word %}
+            {% for word in arraySentence %}
+                {% for letter in word %}
                 {% for oneLetter in letter %}
-                    <div class="letter {{ oneLetter }}"></div>
+                    {% if letter == 'returnKase' %}
+                        </div><div class="w3-padding-large translatedText">
+                    {% else %}
+                        <div class="letter {{ oneLetter }}"></div>
+                    {% endif %}
                 {% endfor %}
-                <div class="space"></div>
+            <div class="space"></div>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
         </div>
     </div>
 {% endblock %}
