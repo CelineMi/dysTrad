@@ -1,74 +1,62 @@
 body{
     max-width: 2400px;
-    /*background-color: aquamarine;*/
 }
 
 /*CSS for boxes display after translation*/
 .letter{
     margin-right: -3px;
     margin-bottom: 5px;
-    margin-top: 5px;
-    /*float: left;*/
+    margin-top: 4px;
     display: inline-block;
     width: 19.9px;
     height: 100px;
-    /*width: 92px;*/
-    /*height: 399px;*/
-    background-image: url("../img/lettres.png");
+    background-image: url("../img/lettresSeyes.png");
     background-size: 150px 100px;
-    /*background-size: 600px 400px;*/
     background-repeat: no-repeat;
 }
 .square{
-    width: 29.4px;
+    width: 24.4px;
     background-position: top left;
 }
 .long-bottom{
-    /*width: 92px;*/
-    width: 18px;
-    background-position: -29.6px 0px;
-    /*background-position: -92px 0px;*/
+    width: 17px;
+    background-position: -24.6px 0px;
 }
 .long-top{
-    background-position: -48.2px 0px;
-    width: 18.4px;
+    background-position: -41px 0px;
+    width: 17px;
 }
 .long{
-    background-position: -66.7px 0px;
-    width: 18.5px;
+    background-position: -57.7px 0px;
+    width: 17px;
 }
 .accent{
-    background-position: -85.1px 0px;
-    width: 18.5px;
+    background-position: -75.1px 0px;
+    width: 24.4px;
 }
 
 .space{
     margin-right: 5px;
     margin-bottom: 5px;
     margin-top: 5px;
-    /*float: left;*/
     display: inline-block;
     width: 20px;
-    /*width: 100px;*/
-    /*height: 396px;*/
     background: white;
 }
 
 .punctuation{
     width: 9px;
-    /*width: 60px;*/
-    background-position: -122.5px 3px;
-    /*background-position: -553px 3px;*/
+    background-position: -124.5px 3px;
 }
 
 .upperKase{
     width: 20px;
-    background-position: -131.8px 0px;
+    background-position: -132.8px 0px;
 }
 
 .cedilla{
-    background-position: -103.9px 0px;
-    width: 18.6px;
+    background-position: -99.9px 0px;
+    width: 24.8px;
 }
 
 /*page home*/
@@ -103,6 +91,10 @@ body{
     align-items: center;
     padding-right: 20px;
 }
+
+.legend-item p{
+    margin-left: 5px;
+}
 .legend {
     display: flex;
     align-items: center;
@@ -115,4 +107,16 @@ body{
     display: block;
     width: 0px;
     height: 0px;
+}
+
+.translatedText{
+    background-image: url("../img/lignesSeyes.jpg");
+    height: 4000px;
+    background-repeat: repeat;
+    background-size: 954px;
+    opacity: 0.5;
+}
+
+.w3-padding-large.lines{
+    padding-top: 56px !important;
 }
