@@ -176,7 +176,7 @@ class ContentController extends AbstractController
      * @return array
      */
     public function replaceWordBySigns($letter, array $arrayWord): array
-    {   var_dump($letter);
+    {
         if (in_array($letter, self::upperKase)) {
             $arrayWord [] = 'upperKase';
 
