@@ -21,6 +21,7 @@ body{
 .long-bottom{
     width: 17px;
     background-position: -24.6px 0px;
+    margin-top: 8px;
 }
 .long-top{
     background-position: -41px 0px;
