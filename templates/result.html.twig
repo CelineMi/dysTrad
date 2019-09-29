@@ -1,63 +1,69 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="backgroundResult">
+    <div class="container-fluid">
+        <div class="backgroundResult">
 
-        <h4 class="w3-padding-large titleResult infos-client">LEGENDE</h4>
-        <div class="legend w3-padding-large">
-            <div class="legend-item">
-                <div class="letter square"></div>
-                <p>lettre plate</p>
-            </div>
-            <div class="legend-item">
-                <div class="letter long-bottom"></div>
-                <p>lettre basse</p>
-            </div>
-            <div class="legend-item">
-                <div class="letter long-top"></div>
-                <p>lettre haute</p>
-            </div>
-            <div class="legend-item">
-                <div class="letter long"></div>
-                <p>lettre longue</p>
-            </div>
-            <div class="legend-item">
-                <div class="letter accent"></div>
-                <p>lettre avec accent</p>
-            </div>
-            <div class="legend-item">
-                <div class="letter upperKase"></div>
-                <p>lettre majuscule</p>
-            </div>
-            <div class="legend-item">
-                <div class="letter cedilla"></div>
-                <p>Cédille</p>
-            </div>
-            <div class="legend-item">
-                <div class="letter punctuation"></div>
-                <p>Ponctuation</p>
-            </div>
+            <h4 class="w3-padding-large titleResult infos-client">LEGENDE</h4>
+            <div class="legend w3-padding-large">
+                <div class="legend-item">
+                    <div class="letter square"></div>
+                    <p>lettre plate</p>
+                </div>
+                <div class="legend-item">
+                    <div class="letter long-bottom"></div>
+                    <p>lettre basse</p>
+                </div>
+                <div class="legend-item">
+                    <div class="letter long-top"></div>
+                    <p>lettre haute</p>
+                </div>
+                <div class="legend-item">
+                    <div class="letter long"></div>
+                    <p>lettre longue</p>
+                </div>
+                <div class="legend-item">
+                    <div class="letter accent"></div>
+                    <p>lettre avec accent</p>
+                </div>
+                <div class="legend-item">
+                    <div class="letter upperKase"></div>
+                    <p>lettre majuscule</p>
+                </div>
+                <div class="legend-item">
+                    <div class="letter cedilla"></div>
+                    <p>Cédille</p>
+                </div>
+                <div class="legend-item">
+                    <div class="letter punctuation"></div>
+                    <p>Ponctuation</p>
+                </div>
 
 
-        </div>
+            </div>
 
-        <h4 class="w3-padding-large infos-client">Votre texte a été traduit : </h4>
-        <p class="w3-padding-large">{{ text }}</p>
-        <p class="w3-padding-large infos-client">Pour l'utiliser, faites une simple copie d'écran grâce à l'outil capture de windows.</p>
+            <h4 class="w3-padding-large infos-client">Votre texte a été traduit : </h4>
+            <p class="w3-padding-large">{{ text }}</p>
+            <p class="w3-padding-large infos-client">Pour l'utiliser, faites une simple copie d'écran grâce à l'outil capture de windows.</p>
 
-        <div class="w3-padding-large lines translatedText">
-            {% for word in arraySentence %}
-                {% for letter in word %}
-                {% for oneLetter in letter %}
+            <div class="row">
+                <div class="col-12 lines translatedText">
+                    {% for word in arraySentence %}
+                    {% for letter in word %}
+                    {% for oneLetter in letter %}
                     {% if letter == 'returnKase' %}
-                        </div><div class="w3-padding-large translatedText">
+                </div><div class="col-12 translatedText">
                     {% else %}
                         <div class="letter {{ oneLetter }}"></div>
                     {% endif %}
-                {% endfor %}
-            <div class="space"></div>
-                {% endfor %}
-            {% endfor %}
+                    {% endfor %}
+                    <div class="space"></div>
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+
         </div>
     </div>
+
 {% endblock %}
