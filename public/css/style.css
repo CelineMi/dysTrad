@@ -15,17 +15,17 @@ body{
     background-repeat: no-repeat;
 }
 .square{
-    width: 23.7px;
+    width: 23.6px;
     background-position: top left;
 }
 .long-bottom{
-    width: 13.6px;
+    width: 13.4px;
     background-position: -23.6px 0px;
     margin-top: 8px;
 }
 .long-top{
-    background-position: -36.7px 0px;
-    width: 14px;
+    background-position: -37.3px 0px;
+    width: 13.24px;
 }
 .long{
     background-position: -50.4px 0px;
@@ -33,7 +33,7 @@ body{
 }
 .accent{
     background-position: -64.1px 0px;
-    width: 20.4px;
+    width: 20.2px;
 }
 
 .space{
